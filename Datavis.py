@@ -280,6 +280,7 @@ def make_sea_ice_area(region, selected_year):
 # 6. APP LAYOUT
 # =========================================================
 app = Dash(__name__)
+server = app.server  # Add this line for deployment!
 app.layout = html.Div([
     html.H2("Climate Change: Drivers & Consequences", style={"textAlign": "center"}),
     html.Div([html.Button("Play", id="play-button", n_clicks=0, style={"marginRight": "10px"}), html.Button("Pause", id="pause-button", n_clicks=0)], style={"textAlign": "center", "marginBottom": "15px"}),
@@ -365,4 +366,4 @@ def update_detail(country, region, special, year, sub_m, main_m):
 def update_temp_sync(year): return make_temperature_line(year)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False) # Turn off debug for production
