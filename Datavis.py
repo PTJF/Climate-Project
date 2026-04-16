@@ -411,7 +411,7 @@ server = app.server
 app.layout = html.Div([
     html.H2("Climate Change: Drivers & Consequences", style={"textAlign": "center"}),
     html.Div([html.Button("Play", id="play-button", n_clicks=0, style={"marginRight": "10px"}), html.Button("Pause", id="pause-button", n_clicks=0)], style={"textAlign": "center", "marginBottom": "15px"}),
-    dcc.Interval(id="play-interval", interval=250, disabled=True),
+    dcc.Interval(id="play-interval", interval=500, disabled=True),
     html.Div([dcc.Slider(id="year-slider", min=START_YEAR, max=END_YEAR, step=1, value=END_YEAR, marks={y: str(y) for y in range(1860, 2021, 20)}, tooltip={"placement": "bottom", "always_visible": True})], style={"width": "90%", "margin": "20px auto"}),
     html.Div([
         html.Div([dcc.Graph(id="world-map", figure=make_map(END_YEAR), config={'displayModeBar': False})], style={"flex": "2"}),
